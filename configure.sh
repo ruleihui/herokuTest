@@ -1,13 +1,15 @@
 #!/bin/sh
 
 
-curl https://rclone.org/install.sh | sudo bash
-###
-cd /content/
-git clone https://github.com/totalleecher/AutoRclone.git
-###
-cd /content/AutoRclone
-pip3 install -r requirements.txt
+curl -O https://downloads.rclone.org/rclone-current-linux-amd64.zip
+unzip rclone-current-linux-amd64.zip
+cd rclone-*-linux-amd64
+
+sudo cp rclone /usr/bin/
+sudo chown root:root /usr/bin/rclone
+sudo chmod 755 /usr/bin/rclone
+
+rclone version
  
 echo "success"
 

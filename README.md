@@ -21,7 +21,8 @@ done
 ```
 
 ./whileTest &
-kill `cat currentPid`
+
+kill $(cat currentPid)
 
 # wordpress
 

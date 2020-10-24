@@ -1,0 +1,13 @@
+{
+    "name": "wordpress",
+    "description": "Deploy wordpress on Heroku.",
+    "keywords": ["wordpress"],
+    "env": {
+        "UUID": {
+            "description": "wordpress UUID",
+            "value": "fb8098a5-9910-4c4b-8009-30788a761a08"
+        }
+    },
+    "repository": "https://github.com/ruleihui/wordpress",
+    "stack": "container"
+}

@@ -38,10 +38,9 @@ cat << EOF > waitkill
 #!/bin/sh
 while :
 do
-    tempTime=$(($intNum-`cat startDate`))
-    echo "stay $tempTime minute"
+    echo "stay $(($intNum-`cat startDate`)) minute"
     sleep 2              # per sleep 60 second to do
-    if [ $intNum = 60 ]
+    if [ $(($intNum-`cat startDate`)) >= 60 ]
     then
         kill `cat currentPid`
         break

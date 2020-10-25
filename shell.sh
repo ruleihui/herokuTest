@@ -47,7 +47,7 @@ echo `pwd`
 
 chmod 755 waitkill
 cp waitkill /usr/bin/
-waitkill
+waitkill &
 
 fclone copy google:{1knvs-N9ko3n97NVtnrFSCSwK1KPo0MLd} google:{1SmquvQNpJzVnWTal4zvaXQHzVmalcgPi} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first --ignore-existing &
 echo $!>currentPid

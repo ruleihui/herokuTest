@@ -49,7 +49,7 @@ echo `pwd`
 echo `cat currentPid`
 chmod 755 waitkill
 cp waitkill /usr/bin/
-waitkill &
+waitkill
 
 
 

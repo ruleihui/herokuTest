@@ -52,7 +52,7 @@ do
     then
         echo "------------Keep active by curl http request------------------"
         curl https://testhreroks.herokuapp.com/
-        echo $((`date +%s`+600)) > intervalTime
+        @bbb@
         continue
     fi
     if [ $intNum -ge $((`cat startDate`)) ]
@@ -63,6 +63,7 @@ do
     fi
 done
 EOF
+sed -i 's|@bbb@|echo $((`date +%s`+600)) > intervalTime|' waitkill
 
 chmod 755 waitkill
 cp waitkill /usr/bin/

@@ -31,6 +31,7 @@ echo $!>currentPid
 echo `cat currentPid`
 # #!/bin/sh 表示使用什么操作这个命令,如果waitkill使用#!/bin/bash 因为shell.sh的头是#!/bin/sh,会报找不到命令的错误
 echo $((`date +%s`+7200))> startDate
+echo $((`date +%s`+600)) > intervalTime
 cat << EOF > currentTime
 #!/bin/sh
 
@@ -47,7 +48,13 @@ do
     
     currentTime $intNum `cat startDate`
     sleep 2              # per sleep 60 second to do
-    echo
+    if [ $intNum -ge $((`cat intervalTime`)) ]
+    then
+        echo "------------Keep active by curl http request------------------"
+        curl https://testhreroks.herokuapp.com/
+        echo $((`date +%s`+600)) > intervalTime
+        continue
+    fi
     if [ $intNum -ge $((`cat startDate`)) ]
     then
         echo "------------Stop Fclone------------------"

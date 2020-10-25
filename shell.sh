@@ -35,7 +35,7 @@ while :
 do
     ((++i))
     echo "stay $i minute"
-    sleep 60              # 延迟60秒执行
+    sleep 60              # per sleep 60 second to do
     if [ $i == 60 ]
     then
         kill `cat currentPid`
@@ -43,8 +43,9 @@ do
     fi
 done
 EOF
+
 chmod 755 waitKill
-cat waitKill
+cp waitKill /usr/bin/
 waitKill &
 
 

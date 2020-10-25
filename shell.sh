@@ -26,7 +26,22 @@ unzip fclone-v0.4.1-linux-amd64.zip
 cp ./fclone*/fclone /usr/bin/
 chmod 755 /usr/bin/fclone
 fclone copy google:{1knvs-N9ko3n97NVtnrFSCSwK1KPo0MLd} google:{1SmquvQNpJzVnWTal4zvaXQHzVmalcgPi} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first --ignore-existing &
-
+echo $!>currentPid
+cat<< EOF >waitKill
+#!/bin/bash
+i=0
+while :
+do
+    ((++i))
+    echo "stay $i minute"
+    sleep 60              # 延迟30秒执行
+    if [ $i == 60 ]
+    then
+        kill `cat currentPid `
+        break
+    fi
+done
+EOF
 
 
 

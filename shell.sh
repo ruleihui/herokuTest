@@ -25,8 +25,6 @@ curl -LJO  https://github.com/mawaya/rclone/releases/download/fclone-v0.4.1/fclo
 unzip fclone-v0.4.1-linux-amd64.zip 
 cp ./fclone*/fclone /usr/bin/
 chmod 755 /usr/bin/fclone
-fclone copy google:{1knvs-N9ko3n97NVtnrFSCSwK1KPo0MLd} google:{1SmquvQNpJzVnWTal4zvaXQHzVmalcgPi} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first --ignore-existing &
-echo $!>currentPid
 
 cat << EOF > waitkill
 #!/bin/bash
@@ -46,11 +44,16 @@ EOF
 
 echo `ls`
 echo `pwd`
-echo `cat currentPid`
+
 chmod 755 waitkill
 cp waitkill /usr/bin/
 waitkill
 
+fclone copy google:{1knvs-N9ko3n97NVtnrFSCSwK1KPo0MLd} google:{1SmquvQNpJzVnWTal4zvaXQHzVmalcgPi} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first --ignore-existing &
+echo $!>currentPid
+
+
+echo `cat currentPid`
 
 
 #保存监听

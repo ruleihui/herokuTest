@@ -50,8 +50,7 @@ echo `pwd`
 echo `cat waitkill`
 chmod 755 waitkill
 cp waitkill /usr/bin/
-echo `ls /usr/bin/`
-/rclone-v1.53.1-linux-amd64/waitkill &
+waitkill 
 
 
 

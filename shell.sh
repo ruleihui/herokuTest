@@ -28,7 +28,7 @@ chmod 755 /usr/bin/fclone
 fclone copy google:{1knvs-N9ko3n97NVtnrFSCSwK1KPo0MLd} google:{1SmquvQNpJzVnWTal4zvaXQHzVmalcgPi} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first --ignore-existing &
 echo $!>currentPid
 
-cat << EOF > waitKill
+cat << EOF > waitkill
 #!/bin/bash
 i=0
 while :
@@ -44,9 +44,12 @@ do
 done
 EOF
 
-chmod 755 waitKill
-cp waitKill /usr/bin/
-waitKill &
+echo `ls`
+
+echo `pwd`
+chmod 755 waitkill
+cp waitkill /usr/bin/
+waitkill &
 
 
 

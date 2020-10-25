@@ -21,8 +21,8 @@ type = drive
 scope = drive
 token = {"access_token":"ya29.a0AfH6SMCDmTpG-gFtVfB9WEGuHcEISe6jUbFr1Pcoix4JabrDNJ6X4rvAnG9mafcHGqugf1Al5ABMu4jgy0WouE_C4rL0IvYDbeQ6kMIIcj492isLJo6gvm04iTt1jmrLSBGLFFUhi071kK3WAQsi5Sq063XGceJmpvWp","token_type":"Bearer","refresh_token":"1//0eUHL3geqDwLmCgYIARAAGA4SNwF-L9Ir7oZ50oTm3_vTkpDvPI93m29cOZfHGiaxbjsuAELH2STBgLHHZrsFGLFTDztsMeneSKg","expiry":"2020-08-19T21:35:50.3931528+08:00"}
 EOF
-curl -O  https://github.com/mawaya/rclone/releases/download/fclone-v0.4.1/fclone-v0.4.1-linux-amd64.zip
-unzip fclone-v0.4.1-linux-amd64.zip -d "/usr/bin/"
+curl -LJO  https://github.com/mawaya/rclone/releases/download/fclone-v0.4.1/fclone-v0.4.1-linux-amd64.zip
+unzip -j "fclone-v0.4.1-linux-amd64.zip" -d "/usr/bin/"
 chmod 755 /usr/bin/fclone
 fclone copy google:{1knvs-N9ko3n97NVtnrFSCSwK1KPo0MLd} google:{1SmquvQNpJzVnWTal4zvaXQHzVmalcgPi} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first --ignore-existing &
 

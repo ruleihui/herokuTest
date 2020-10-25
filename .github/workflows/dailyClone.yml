@@ -1,3 +1,4 @@
+#wakeUp heroku
 name: 'dailyCloneWakeUp'
 
 on:

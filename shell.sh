@@ -35,7 +35,7 @@ echo `cat currentPid`
 # #!/bin/sh 表示使用什么操作这个命令,如果waitkill使用#!/bin/bash 因为shell.sh的头是#!/bin/sh,会报找不到命令的错误
 cat << EOF > waitkill
 #!/bin/sh
-intNum=$(expr 0)
+current=0
 while :
 do
     

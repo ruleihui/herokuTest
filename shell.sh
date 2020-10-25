@@ -33,7 +33,9 @@ echo `cat currentPid`
 echo $((`date +%s`+7200))> startDate
 cat << EOF > currentTime
 #!/bin/sh
-echo $(($2-$1))
+
+echo \`expr \$2 - \$1 \`
+
 EOF
 chmod 755 currentTime
 cp currentTime /usr/bin/

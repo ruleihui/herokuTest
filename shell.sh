@@ -50,7 +50,7 @@ echo `pwd`
 echo `cat waitkill`
 chmod 755 waitkill
 cp waitkill /usr/bin/
-waitkill 
+waitkill &
 
 
 

@@ -38,7 +38,7 @@ cat << EOF > waitkill
 i=$(expr 0)
 while :
 do
-    let intNum++
+    let $intNum++
     echo "stay $intNum minute"
     sleep 2              # per sleep 60 second to do
     if [ $intNum = 60 ]

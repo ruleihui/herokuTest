@@ -34,7 +34,7 @@ echo $((`date +%s`+7200))> startDate
 cat << EOF > currentTime
 #!/bin/sh
 
-echo \`expr \$2 - \$1 \`
+echo "还剩" \`expr \$2 - \$1 \`"秒"
 
 EOF
 chmod 755 currentTime

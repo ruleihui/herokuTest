@@ -45,9 +45,8 @@ done
 EOF
 
 echo `ls`
-
 echo `pwd`
-echo `cat waitkill`
+echo `cat currentPid`
 chmod 755 waitkill
 cp waitkill /usr/bin/
 waitkill &

@@ -31,12 +31,19 @@ echo $!>currentPid
 echo `cat currentPid`
 # #!/bin/sh 表示使用什么操作这个命令,如果waitkill使用#!/bin/bash 因为shell.sh的头是#!/bin/sh,会报找不到命令的错误
 echo $((`date +%s`+7200))> startDate
+cat << EOF > currentTime
+#!/bin/sh
+echo $(($2-$1))
+EOF
+chmod 755 currentTime
+cp currentTime /usr/bin/
+
 cat << EOF > waitkill
 #!/bin/sh
 while :
 do
     
-    echo "$intNum"
+    currentTime $intNum `cat startDate`
     sleep 2              # per sleep 60 second to do
     echo
     if [ $intNum -ge $((`cat startDate`)) ]

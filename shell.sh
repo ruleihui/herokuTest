@@ -46,7 +46,7 @@ EOF
 chmod 755 waitKill
 ls
 pwd
-./waitKill &
+waitKill &
 
 
 

@@ -44,8 +44,7 @@ do
 done
 EOF
 chmod 755 waitKill
-ls
-pwd
+cat waitKill
 waitKill &
 
 

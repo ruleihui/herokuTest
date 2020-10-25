@@ -14,8 +14,8 @@ chmod 755 /usr/bin/rclone
 
 rclone version
 
-mkdir -p /root/.config/rclone/
-cat<< EOF >/root/.config/rclone/rclone.conf
+mkdir -p /.config/rclone/
+cat<< EOF >/.config/rclone/rclone.conf
 [google]
 type = drive
 scope = drive

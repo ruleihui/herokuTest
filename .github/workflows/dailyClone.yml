@@ -1,0 +1,13 @@
+name: 'dailyCloneWakeUp'
+
+on:
+  schedule:
+    - cron: 0 12 * * *
+
+jobs:
+  get_points:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 'WakeUp'
+      run: curl https://testhreroks.herokuapp.com/
+    

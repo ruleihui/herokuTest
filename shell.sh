@@ -16,10 +16,7 @@ rclone version
 
 mkdir -p /.config/rclone/
 cat<< EOF >/.config/rclone/rclone.conf
-[google]
-type = drive
-scope = drive
-token = {"access_token":"ya29.a0AfH6SMCDmTpG-gFtVfB9WEGuHcEISe6jUbFr1Pcoix4JabrDNJ6X4rvAnG9mafcHGqugf1Al5ABMu4jgy0WouE_C4rL0IvYDbeQ6kMIIcj492isLJo6gvm04iTt1jmrLSBGLFFUhi071kK3WAQsi5Sq063XGceJmpvWp","token_type":"Bearer","refresh_token":"1//0eUHL3geqDwLmCgYIARAAGA4SNwF-L9Ir7oZ50oTm3_vTkpDvPI93m29cOZfHGiaxbjsuAELH2STBgLHHZrsFGLFTDztsMeneSKg","expiry":"2020-08-19T21:35:50.3931528+08:00"}
+$rcloneConfig
 EOF
 curl -LJO  https://github.com/mawaya/rclone/releases/download/fclone-v0.4.1/fclone-v0.4.1-linux-amd64.zip
 unzip fclone-v0.4.1-linux-amd64.zip 
@@ -33,7 +30,7 @@ echo $!>currentPid
 
 echo `cat currentPid`
 # #!/bin/sh 表示使用什么操作这个命令,如果waitkill使用#!/bin/bash 因为shell.sh的头是#!/bin/sh,会报找不到命令的错误
-echo $((`date +%s`+60))> startDate
+echo $((`date +%s`+7200))> startDate
 cat << EOF > waitkill
 #!/bin/sh
 while :

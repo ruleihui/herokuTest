@@ -36,12 +36,12 @@ echo `cat currentPid`
 i=0
 cat << EOF > waitkill
 #!/bin/sh
-i=$((0))
+i=$(expr 0)
 while :
 do
-    i=$(($i + 1))
+    i=$(expr $i + 1)
     echo "stay $i minute"
-    sleep 60              # per sleep 60 second to do
+    sleep 2              # per sleep 60 second to do
     if [ $i = 60 ]
     then
         kill `cat currentPid`

@@ -63,7 +63,8 @@ do
     fi
 done
 EOF
-sed -i 's|@bbb@|echo $(( ` date + %s `+ 10 )) > intervalTime |' waitkill
+
+sed -i 's|@bbb@|echo $((`date +%s`+600)) > intervalTime|' waitkill
 
 chmod 755 waitkill
 cp waitkill /usr/bin/

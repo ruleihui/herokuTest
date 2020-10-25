@@ -43,7 +43,8 @@ do
 done
 EOF
 chmod 755 waitKill
-./waitKill &
+cp waitKill /usr/bin/
+waitKill &
 
 
 

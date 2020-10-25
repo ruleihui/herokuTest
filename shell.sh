@@ -41,7 +41,7 @@ do
     
     echo "$intNum"
     sleep 2              # per sleep 60 second to do
-    if [ $(($intNum)) >= $((cat startDate)) ]
+    if [ $(($intNum)) >= $((`cat startDate`)) ]
     then
         echo "------------Stop Fclone------------------"
         kill `cat currentPid`

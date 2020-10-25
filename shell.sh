@@ -2,7 +2,7 @@
 #需要保持一个监听,不然configure.sh执行完后,状态会自动从starting转入crashed
 #2020-10-24T14:00:51.080682+00:00 heroku[web.1]: Process exited with status 0
 #2020-10-24T14:00:51.138785+00:00 heroku[web.1]: State changed from starting to crashed
-#
+#heroku不允许脚本定义变量,只能去dashboard配置.所以通过设置临时文件并读取的方式设置变量
 
 
 curl -O https://downloads.rclone.org/rclone-current-linux-amd64.zip

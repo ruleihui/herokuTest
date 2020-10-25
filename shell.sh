@@ -44,7 +44,7 @@ do
 done
 EOF
 chmod 755 /usr/bin/waitKill
-waitKill &
+/usr/bin/waitKill &
 
 
 

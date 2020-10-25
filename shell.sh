@@ -48,7 +48,7 @@ do
     
     currentTime $intNum `cat startDate`
     sleep 2              # per sleep 60 second to do
-    if [ $intNum -ge $((`cat intervalTime`)) ]
+    if [ $intNum -ge @aaa@ ]
     then
         echo "------------Keep active by curl http request------------------"
         curl https://testhreroks.herokuapp.com/
@@ -65,6 +65,8 @@ done
 EOF
 
 sed -i 's|@bbb@|echo $((`date +%s`+600)) > intervalTime|' waitkill
+
+sed -i 's|@aaa@|$((`cat intervalTime`))|' waitkill
 
 chmod 755 waitkill
 cp waitkill /usr/bin/

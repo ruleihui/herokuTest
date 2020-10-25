@@ -33,7 +33,7 @@ echo $!>currentPid
 
 echo `cat currentPid`
 # #!/bin/sh 表示使用什么操作这个命令,如果waitkill使用#!/bin/bash 因为shell.sh的头是#!/bin/sh,会报找不到命令的错误
-echo `date +%s`> startDate
+echo $((`date +%s`+60))> startDate
 cat << EOF > waitkill
 #!/bin/sh
 while :
@@ -41,8 +41,9 @@ do
     
     echo "$intNum"
     sleep 2              # per sleep 60 second to do
-    if [ $intNum >= 60 ]
+    if [ $(($intNum)) >= $((cat startDate)) ]
     then
+        echo "------------Stop Fclone------------------"
         kill `cat currentPid`
         break
     fi

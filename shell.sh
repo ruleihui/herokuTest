@@ -39,7 +39,8 @@ cat << EOF > waitkill
 i=$(expr 0)
 while :
 do
-    i=$(expr $i + 1)
+    
+    let i++
     echo "stay $i minute"
     sleep 2              # per sleep 60 second to do
     if [ $i = 60 ]

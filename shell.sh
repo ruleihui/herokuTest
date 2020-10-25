@@ -10,7 +10,6 @@ unzip rclone-current-linux-amd64.zip
 cd rclone-*-linux-amd64
 
 cp rclone /usr/bin/
-chown root:root /usr/bin/rclone
 chmod 755 /usr/bin/rclone
 
 rclone version
@@ -20,6 +19,7 @@ chmod 755 test.sh
 crontab test.sh
 echo "success"
 
+mkdir -p /root/.config/rclone/
 cat<< EOF >/root/.config/rclone/rclone.conf
 [google]
 type = drive

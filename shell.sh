@@ -26,8 +26,15 @@ unzip fclone-v0.4.1-linux-amd64.zip
 cp ./fclone*/fclone /usr/bin/
 chmod 755 /usr/bin/fclone
 
+
+fclone copy google:{1knvs-N9ko3n97NVtnrFSCSwK1KPo0MLd} google:{1SmquvQNpJzVnWTal4zvaXQHzVmalcgPi} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first --ignore-existing &
+echo $!>currentPid
+
+
+echo `cat currentPid`
+
 cat << EOF > waitkill
-#!/bin/bash
+#!/bin/sh
 i=0
 while :
 do
@@ -42,18 +49,14 @@ do
 done
 EOF
 
-echo `ls`
-echo `pwd`
-
 chmod 755 waitkill
 cp waitkill /usr/bin/
 waitkill &
 
-fclone copy google:{1knvs-N9ko3n97NVtnrFSCSwK1KPo0MLd} google:{1SmquvQNpJzVnWTal4zvaXQHzVmalcgPi} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first --ignore-existing &
-echo $!>currentPid
 
 
-echo `cat currentPid`
+
+
 
 
 #保存监听

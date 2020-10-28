@@ -28,7 +28,9 @@ mkdir accounts
 fclone copy kkk:accounts.zip /rcloneTemp/accounts/
 unzip -q -o -j "/rcloneTemp/accounts/accounts.zip" -d "accounts/"
 
-echo "accounts file get and unzip over" 
+echo "------------accounts total"`ls /rcloneTemp/accounts/ | wc -l`
+
+echo "------------accounts file get and unzip over" 
 
 fclone copy kkk:{10p6gvNkHhFmhGIsCIV7LYJImyzTq7OsD} kkk:{0AFLoarsGwGcIUk9PVA}baidu --drive-server-side-across-configs --stats=3s --stats-one-line  -vP  --transfers=300 --checkers=128 --drive-pacer-min-sleep=1ms --check-first --ignore-existing &
 echo $!>currentPid
@@ -56,14 +58,14 @@ do
     sleep 2              # per sleep 60 second to do
     if [ $intNum -ge @aaa@ ]
     then
-        echo "------------Keep active by curl http request------------------"
+        echo "------------Keep active by curl http request------------
         curl https://testhreroks.herokuapp.com/
         @bbb@
         continue
     fi
     if [ $intNum -ge $((`cat startDate`)) ]
     then
-        echo "------------Stop Fclone------------------"
+        echo ------------Stop Fclone------------
         kill `cat currentPid`
         break
     fi

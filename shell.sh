@@ -72,13 +72,13 @@ chmod 755 waitkill
 cp waitkill /usr/bin/
 waitkill &
 
-if [ $Stop ]
-then 
-    echo "------------Stop by configVars------------------"
-    kill `cat currentPid`
-    echo "------------Stop waitkill by configVars------------------"
-    kill `cat waitKillPid`
-fi
+#if [ $Stop ]
+#then 
+#    echo "------------Stop by configVars------------------"
+#    kill `cat currentPid`
+#    echo "------------Stop waitkill by configVars------------------"
+#   kill `cat waitKillPid`
+#fi
 
 
 

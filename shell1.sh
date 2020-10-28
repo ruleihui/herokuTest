@@ -7,7 +7,7 @@
 
 curl -O https://downloads.rclone.org/rclone-current-linux-amd64.zip
 unzip rclone-current-linux-amd64.zip
-mv rclone-*-linux-amd64 rcloneTemp
+mv rclone-current-linux-amd64 rcloneTemp
 cd rcloneTemp
 
 cp rclone /usr/bin/

@@ -7,7 +7,10 @@
 
 curl -LJo rcloneTemp.zip https://github.com/rclone/rclone/releases/download/v1.53.2/rclone-v1.53.2-linux-amd64.zip
 unzip rcloneTemp.zip
-cd rclone*
+chmod 555 rclone*amd64
+mv rclone*amd64 rcloneTemp
+
+cd rcloneTemp
 
 cp rclone /usr/bin/
 chmod 755 /usr/bin/rclone
@@ -26,7 +29,7 @@ chmod 755 /usr/bin/fclone
 mkdir accounts
 #rclone copy eee:accounts.zip d:\Temp1\
 rclone copy kkk:accounts.zip /rcloneTemp/accounts/
-unzip -q -o -j "/rcloneTemp/accounts/accounts.zip" -d "accounts/"
+unzip -q -o -j "/rcloneTemp/accounts/accounts.zip" -d "./accounts/"
 
 echo "------------accounts total"`ls /rcloneTemp/accounts/ | wc -l`
 

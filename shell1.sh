@@ -61,7 +61,7 @@ do
     if [ $intNum -ge @aaa@ ]
     then
         echo "------------Keep active by curl http request------------"
-        curl https://testhreroks.herokuapp.com/
+        curl https://sacopy.herokuapp.com/
         @bbb@
         continue
     fi

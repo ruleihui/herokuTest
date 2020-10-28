@@ -7,8 +7,7 @@
 
 curl -LJo rcloneTemp.zip https://github.com/rclone/rclone/releases/download/v1.53.2/rclone-v1.53.2-linux-amd64.zip
 unzip rcloneTemp.zip
-mv rclone* rcloneTemp
-cd rcloneTemp
+cd rclone*
 
 cp rclone /usr/bin/
 chmod 755 /usr/bin/rclone

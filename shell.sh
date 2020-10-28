@@ -72,8 +72,11 @@ chmod 755 waitkill
 cp waitkill /usr/bin/
 waitkill &
 
-
-
+if [ $Stop ]
+then 
+    echo "------------Stop by configVars------------------"
+    kill `cat currentPid`
+fi
 
 
 

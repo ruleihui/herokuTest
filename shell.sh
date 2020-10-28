@@ -45,7 +45,7 @@ cat << EOF > waitkill
 #!/bin/sh
 while :
 do
-    
+    echo $$ > waitKillPid
     currentTime $intNum `cat startDate`
     sleep 2              # per sleep 60 second to do
     if [ $intNum -ge @aaa@ ]
@@ -76,6 +76,8 @@ if [ $Stop ]
 then 
     echo "------------Stop by configVars------------------"
     kill `cat currentPid`
+    echo "------------Stop waitkill by configVars------------------"
+    kill `cat waitKillPid`
 fi
 
 

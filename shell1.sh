@@ -29,7 +29,7 @@ fclone copy google:accounts.zip /rcloneTemp/accounts/
 unzip -q -o -j "/rcloneTemp/accounts/accounts.zip" -d "accounts/"
 
 
-fclone copy kkk:{10p6gvNkHhFmhGIsCIV7LYJImyzTq7OsD} kkk:{0AFLoarsGwGcIUk9PVA}baidu --drive-server-side-across-configs --stats=1s --stats-one-line  -vP  --transfers=300 --checkers=128 --drive-pacer-min-sleep=1ms --check-first --ignore-existing &
+fclone copy kkk:{10p6gvNkHhFmhGIsCIV7LYJImyzTq7OsD} kkk:{0AFLoarsGwGcIUk9PVA}baidu --drive-server-side-across-configs --stats=3s --stats-one-line  -vP  --transfers=300 --checkers=128 --drive-pacer-min-sleep=1ms --check-first --ignore-existing &
 echo $!>currentPid
 
 

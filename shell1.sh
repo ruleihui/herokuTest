@@ -25,7 +25,7 @@ cp ./fclone*/fclone /usr/bin/
 chmod 755 /usr/bin/fclone
 
 mkdir accounts
-fclone copy google:accounts.zip /rcloneTemp/accounts/
+fclone copy kkk:accounts.zip /rcloneTemp/accounts/
 unzip -q -o -j "/rcloneTemp/accounts/accounts.zip" -d "accounts/"
 
 echo "accounts file get and unzip over" 

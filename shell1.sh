@@ -60,14 +60,14 @@ do
     sleep 2              # per sleep 60 second to do
     if [ $intNum -ge @aaa@ ]
     then
-        echo "------------Keep active by curl http request------------
+        echo "------------Keep active by curl http request------------"
         curl https://testhreroks.herokuapp.com/
         @bbb@
         continue
     fi
     if [ $intNum -ge $((`cat startDate`)) ]
     then
-        echo ------------Stop Fclone------------
+        echo "------------Stop Fclone------------"
         kill `cat currentPid`
         break
     fi

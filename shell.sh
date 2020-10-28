@@ -5,8 +5,9 @@
 #heroku不允许脚本定义变量,只能去dashboard配置.所以通过设置临时文件并读取的方式设置变量
 
 
-curl -O https://downloads.rclone.org/rclone-current-linux-amd64.zip
-unzip rclone-current-linux-amd64.zip
+#curl -O https://downloads.rclone.org/rclone-current-linux-amd64.zip
+curl -LJO https://github.com/rclone/rclone/releases/download/v1.53.2/rclone-v1.53.2-linux-amd64.zip
+unzip rclone-v1.53.2-linux-amd64.zip
 cd rclone-*-linux-amd64
 
 cp rclone /usr/bin/

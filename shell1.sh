@@ -7,7 +7,7 @@
 
 curl -LJO https://github.com/rclone/rclone/releases/download/v1.53.2/rclone-v1.53.2-linux-amd64.zip
 unzip rclone-v1.53.2-linux-amd64.zip
-mv rclone-v1.53.2-linux-amd64.zip rcloneTemp
+mv rclone-v1.53.2-linux-amd64 rcloneTemp
 cd rcloneTemp
 
 cp rclone /usr/bin/

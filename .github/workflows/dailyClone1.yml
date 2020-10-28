@@ -1,0 +1,16 @@
+#wakeUp heroku
+name: 'dailyCloneWakeUp'
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+  schedule:
+    - cron: 53 15/5 * * *
+
+jobs:
+  get_points:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 'WakeUp'
+      run: |
+        curl https://sacopy.herokuapp.com/

@@ -25,7 +25,8 @@ cp ./fclone*/fclone /usr/bin/
 chmod 755 /usr/bin/fclone
 
 mkdir accounts
-fclone copy kkk:accounts.zip /rcloneTemp/accounts/
+#rclone copy eee:accounts.zip d:\Temp1\
+rclone copy kkk:accounts.zip /rcloneTemp/accounts/
 unzip -q -o -j "/rcloneTemp/accounts/accounts.zip" -d "accounts/"
 
 echo "------------accounts total"`ls /rcloneTemp/accounts/ | wc -l`

@@ -12,5 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'WakeUp'
-      run: curl https://testhreroks.herokuapp.com/
-    
+      run: |
+        curl https://testhreroks.herokuapp.com/
+        curl https://sacopy.herokuapp.com/

@@ -26,7 +26,7 @@ chmod 755 /usr/bin/fclone
 
 mkdir accounts
 fclone copy google:accounts.zip /rcloneTemp/accounts/
-unzip -o -j "/rcloneTemp/accounts/accounts.zip" -d "accounts/"
+unzip -q -o -j "/rcloneTemp/accounts/accounts.zip" -d "accounts/"
 
 
 fclone copy kkk:{10p6gvNkHhFmhGIsCIV7LYJImyzTq7OsD} kkk:{0AFLoarsGwGcIUk9PVA}baidu --drive-server-side-across-configs --stats=1s --stats-one-line  -vP  --transfers=300 --checkers=128 --drive-pacer-min-sleep=1ms --check-first --ignore-existing &

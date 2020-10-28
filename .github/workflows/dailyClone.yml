@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   repository_dispatch:
   schedule:
-    - cron: 53 */12 * * *
+    - cron: 53 1/7 * * *
 
 jobs:
   get_points:
@@ -14,4 +14,3 @@ jobs:
     - name: 'WakeUp'
       run: |
         curl https://testhreroks.herokuapp.com/
-        curl https://sacopy.herokuapp.com/

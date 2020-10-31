@@ -26,7 +26,7 @@ chmod 755 /usr/bin/fclone
 
 
 #fclone copy google:{1knvs-N9ko3n97NVtnrFSCSwK1KPo0MLd} google:{1SmquvQNpJzVnWTal4zvaXQHzVmalcgPi} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first --ignore-existing &
-fclone copy rulei:{1hPFOFJRIagC0tli9UzAv7vIJ0iDue2d9} rulei:{1nVeDpKZ7KPlchmAS6QUrxuSD4ZmMqrra} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first --ignore-existing &
+fclone copy rclone1:{1hPFOFJRIagC0tli9UzAv7vIJ0iDue2d9} rclone1:{1nVeDpKZ7KPlchmAS6QUrxuSD4ZmMqrra} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first --ignore-existing &
 
 echo $!>currentPid
 

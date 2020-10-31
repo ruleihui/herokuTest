@@ -34,7 +34,7 @@ echo "------------accounts total"`ls /rcloneTemp/accounts/ | wc -l`
 
 echo "------------accounts file get and unzip over" 
 
-fclone copy ssl:{10p6gvNkHhFmhGIsCIV7LYJImyzTq7OsD} ssl:{0AFLoarsGwGcIUk9PVA}baidu --drive-server-side-across-configs --stats=3s --stats-one-line  -vP  --transfers=300 --checkers=128 --drive-pacer-min-sleep=1ms --check-first --ignore-existing --max-transfer=700G   &
+fclone copy kkk:{10p6gvNkHhFmhGIsCIV7LYJImyzTq7OsD} kkk:{0AFLoarsGwGcIUk9PVA}baidu --drive-server-side-across-configs --stats=3s --stats-one-line  -vP  --transfers=500 --checkers=300 --drive-pacer-min-sleep=1ms --check-first --ignore-existing --max-transfer=700G   &
 echo $!>currentPid
 
 

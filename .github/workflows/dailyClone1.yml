@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   repository_dispatch:
   schedule:
-    - cron: 53 10,15 * * *
+    - cron: 53 3,15 * * *
 
 jobs:
   get_points:

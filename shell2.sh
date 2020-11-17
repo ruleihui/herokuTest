@@ -134,9 +134,9 @@ sed -i 's|@bbb@|echo $(($((`date +%s`)) + 600)) > intervalTime|' waitkill
 
 sed -i 's|@aaa@|$((`cat intervalTime`))|' waitkill
 
-sed -i 's|@ccc@|$((`ps -ef|grep -c $(cat task2)`))|' waitkill
+sed -i 's|@ccc@|$((`ps -ef \| grep -c $(cat task2)`))|' waitkill
 
-sed -i 's|@ddd@|$((`ps -ef|grep -c $(cat task1)`))|' waitkill
+sed -i 's|@ddd@|$((`ps -ef \| grep -c $(cat task1)`))|' waitkill
 
 chmod 755 waitkill
 cp waitkill /usr/bin/

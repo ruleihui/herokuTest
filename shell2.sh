@@ -142,7 +142,14 @@ chmod 755 waitkill
 cp waitkill /usr/bin/
 waitkill &
 
-
+if [ $Stop ]
+then 
+   echo "------------Stop Task1&2------------------"
+   kill `cat task1`
+   kill `cat task2`
+   echo "------------Stop waitkill by configVars------------------"
+   kill `cat waitKillPid`
+fi
 
 
 

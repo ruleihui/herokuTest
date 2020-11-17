@@ -138,8 +138,8 @@ sed -i 's|@ccc@|`ps -ef \| grep -c $(cat task2)`|' waitkill
 
 sed -i 's|@ddd@|`ps -ef \| grep -c $(cat task1)`|' waitkill
 
-echo "*****************************"`ps -ef \| grep -c $(cat task2)`
-echo "*****************************"`ps -ef \| grep -c $(cat task1)`
+echo "*****************************"`ps -ef | grep -c $(cat task2)`
+echo "*****************************"`ps -ef | grep -c $(cat task1)`
 chmod 755 waitkill
 cp waitkill /usr/bin/
 waitkill &

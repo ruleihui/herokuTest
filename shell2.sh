@@ -122,8 +122,9 @@ do
     fi
     if [ $intNum -ge $((`cat startDate`)) ]
     then
-        echo "------------Stop Fclone------------"
-        kill `cat currentPid`
+        echo "------------Stop Dynos------------"
+        kill `cat task1`
+        kill `cat task2`
         break
     fi
 done

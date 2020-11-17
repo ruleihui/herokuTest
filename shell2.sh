@@ -38,8 +38,9 @@ $rcloneConfig
 EOF
 curl -LJO  https://github.com/mawaya/rclone/releases/download/fclone-v0.4.1/fclone-v0.4.1-linux-amd64.zip
 unzip fclone-v0.4.1-linux-amd64.zip 
+cp ./fclone*/fclone /usr/bin/
 cp ./fclone*/fclone /usr/bin/fclone1
-cp  /usr/bin/fclone1 /usr/bin/fclone2
+cp  ./fclone*/fclone /usr/bin/fclone2
 chmod 755 /usr/bin/fclone1
 chmod 755 /usr/bin/fclone2
 mkdir accounts

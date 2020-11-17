@@ -98,7 +98,7 @@ do
         echo "------------Keep active by curl http request------------"
         curl https://cron-to-copy.herokuapp.com/
         @bbb@
-        if [ @ccc@ -ge 1 ]
+        if [ @ccc@ -ge 2 ]
         then
             echo "------------Kill Old Task2 ------------"
             kill `cat task2`
@@ -109,7 +109,7 @@ do
         else
             echo "------------2019 was over ------------"
         fi
-        if [ @ddd@ -ge 1 ]
+        if [ @ddd@ -ge 2 ]
         then
             echo "------------Kill Old Task1 ------------"
             kill `cat task1`

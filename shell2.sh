@@ -140,8 +140,8 @@ sed -i 's|@ccc@|`ps -ef \| grep -c  fclone2`|' waitkill
 
 sed -i 's|@ddd@|`ps -ef \| grep -c  fclone1`|' waitkill
 
-echo "*****************************"`ps -ef | grep -c  fclone1` 
-echo "*****************************"`ps -ef | grep -c  fclone2` 
+echo "*****************************"`ps -ef | grep  fclone1` 
+echo "*****************************"`ps -ef | grep  fclone2` 
 chmod 755 waitkill
 cp waitkill /usr/bin/
 waitkill &

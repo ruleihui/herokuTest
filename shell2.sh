@@ -40,8 +40,8 @@ curl -LJO  https://github.com/mawaya/rclone/releases/download/fclone-v0.4.1/fclo
 unzip fclone-v0.4.1-linux-amd64.zip 
 cp ./fclone*/fclone /usr/bin/fclone1
 cp  /usr/bin/fclone /usr/bin/fclone2
-chmod 755 /usr/bin/fclone
-
+chmod 755 /usr/bin/fclone1
+chmod 755 /usr/bin/fclone2
 mkdir accounts
 #rclone copy eee:accounts.zip d:\Temp1\
 rclone copy kkk:accounts.zip /rcloneTemp/accounts/

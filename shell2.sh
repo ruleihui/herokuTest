@@ -3,7 +3,23 @@
 #2020-10-24T14:00:51.080682+00:00 heroku[web.1]: Process exited with status 0
 #2020-10-24T14:00:51.138785+00:00 heroku[web.1]: State changed from starting to crashed
 #heroku不允许脚本定义变量,只能去dashboard配置.所以通过设置临时文件并读取的方式设置变量
-
+# shell里面怎么样把字符串转换为数字？
+# 例如：a="024"
+# 1，用${{a}}
+# 2，用let达到(()) 运算效果。
+# let num=0123;
+# echo $num; 
+# 83
+# 3，双括号运算符:
+# a=$((1+2));
+# echo $a;
+# 等同于：
+# a=`expr 1 + 2`
+# 而数字会默认做字符串处理
+# 变量用单引号''变字符串
+# i=1
+# echo '$i';
+# 输出：$1
 
 curl -LJo rcloneTemp.zip https://github.com/rclone/rclone/releases/download/v1.53.2/rclone-v1.53.2-linux-amd64.zip
 unzip rcloneTemp.zip
@@ -80,14 +96,28 @@ do
         echo "------------Keep active by curl http request------------"
         curl https://sacopy.herokuapp.com/
         @bbb@
-        echo "------------Kill Old Task1 And Task2------------"
-        kill `cat task1`
-        kill `cat task2`
-        echo "------------Sleep 5 Wait Task1&2 Was Killed------------"
-        sleep 5
-        echo "------------Start New Task1 And Task2------------"
-        CopyTask1
-        CopyTask2
+        if [ @ccc@ -ge 1 ]
+        then
+            echo "------------Kill Old Task2 ------------"
+            kill `cat task1`
+            echo "------------Sleep 5 Wait Task2 Was Killed------------"
+            sleep 5
+            echo "------------Start New Task2------------"
+            CopyTask2
+        else
+            echo "------------2019 was over ------------"
+        fi
+        if [ @ddd@ -ge 1 ]
+        then
+            echo "------------Kill Old Task1 ------------"
+            kill `cat task1`
+            echo "------------Sleep 5 Wait Task1 Was Killed------------"
+            sleep 5
+            echo "------------Start New Task1 And Task2------------"
+            CopyTask1
+        else
+            echo "------------2017 was over ------------"
+        fi
         continue
     fi
     if [ $intNum -ge $((`cat startDate`)) ]
@@ -102,6 +132,10 @@ EOF
 sed -i 's|@bbb@|echo $(($((`date +%s`)) + 600)) > intervalTime|' waitkill
 
 sed -i 's|@aaa@|$((`cat intervalTime`))|' waitkill
+
+sed -i 's|@ccc@|$((`ps -ef|grep -c $(cat task2)`))|' waitkill
+
+sed -i 's|@ddd@|$((`ps -ef|grep -c $(cat task1)`))|' waitkill
 
 chmod 755 waitkill
 cp waitkill /usr/bin/

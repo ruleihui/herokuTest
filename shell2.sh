@@ -94,7 +94,7 @@ do
     if [ $intNum -ge @aaa@ ]
     then
         echo "------------Keep active by curl http request------------"
-        curl https://sacopy.herokuapp.com/
+        curl https://cron-to-copy.herokuapp.com/
         @bbb@
         if [ @ccc@ -ge 1 ]
         then

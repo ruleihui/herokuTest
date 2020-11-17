@@ -55,23 +55,23 @@ echo "------------accounts file get and unzip over"
 cat << EOF > CopyTask1
 #!/bin/sh
 fclone copy lss:{1roZgDYlrNsEaEkG0pDBSdOSynHT5jPTf} lss:{1j8K_dypTLoWiZutX6oIvY6hEH4k0Cd5F} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first --ignore-existing &
-echo $!>task1
+echo $! > task1
 EOF
 chmod 755 CopyTask1
 cp CopyTask1 /usr/bin/
-CopyTask1
+./CopyTask1
 #任务2
 #2019
 cat << EOF > CopyTask2
 #!/bin/sh
 fclone copy lss:{1D3IhPJghiXoCZv7u7bNtN5PpE4vfOvTI} lss:{12bopUl7dO7nwSihvfzhbXWeTRByeFf0h} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first --ignore-existing &
-echo $!>task2
+echo $! > task2
 EOF
 chmod 755 CopyTask2
 cp CopyTask2 /usr/bin/
-CopyTask2
+./CopyTask2
 # #!/bin/sh 表示使用什么操作这个命令,如果waitkill使用#!/bin/bash 因为shell.sh的头是#!/bin/sh,会报找不到命令的错误
-echo $((`date +%s`+86400))> startDate
+echo $((`date +%s`+86400)) > startDate
 echo $((`date +%s`+60)) > intervalTime
 
 #打印仍将保持时间
@@ -99,7 +99,7 @@ do
         if [ @ccc@ -ge 1 ]
         then
             echo "------------Kill Old Task2 ------------"
-            kill `cat task1`
+            kill `cat task2`
             echo "------------Sleep 5 Wait Task2 Was Killed------------"
             sleep 5
             echo "------------Start New Task2------------"
@@ -136,7 +136,7 @@ sed -i 's|@aaa@|$((`cat intervalTime`))|' waitkill
 
 sed -i 's|@ccc@|`ps -ef \| grep -c  task2`|' waitkill
 
-sed -i 's|@ddd@|`ps -ef \| grep -c   task1`|' waitkill
+sed -i 's|@ddd@|`ps -ef \| grep -c  task1`|' waitkill
 
 echo "*****************************"`ps -ef | grep -c   task2` 
 echo "*****************************"`ps -ef | grep -c  task1` 

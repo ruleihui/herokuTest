@@ -166,8 +166,8 @@ sed -i 's|@ccc@|`ps -ef \| grep -c  fclone2`|' waitkill
 
 sed -i 's|@ddd@|`ps -ef \| grep -c  fclone1`|' waitkill
 
-sed -i 's|@ddd1@|echo `ps -ef \| grep fclone1 \| grep -v grep \| awk \' {print $1} \' ` > task1 |' waitkill
-sed -i 's|@ddd2@|echo `ps -ef \| grep fclone2 \| grep -v grep \| awk \' {print $1} \' ` > task2 |' waitkill
+sed -i 's|@ddd1@|echo `ps -ef \| grep fclone1 \| grep -v grep \| awk \'{print $1}\' ` > task1 | ' waitkill
+sed -i 's|@ddd2@|echo `ps -ef \| grep fclone2 \| grep -v grep \| awk \'{print $1}\' ` > task2 | ' waitkill
 
 echo "*****************************"`ps -ef | grep  fclone1` 
 echo "*****************************"`ps -ef | grep  fclone2` 

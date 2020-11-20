@@ -57,7 +57,7 @@ echo "------------accounts file get and unzip over"
 cat << EOF > CopyTask1
 #!/bin/sh
 fclone1 copy lss:{1pzyD0YhMVRvXhCDNCitC2SBybVjFbZSk} lss:{1dmPYvl7mWsCK33vtBbVL2l8k5hCzJNi5} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first --ignore-existing &
-echo $! > /tmp/task1
+echo $! > ./task1.pid
 EOF
 chmod 755 CopyTask1
 cp CopyTask1 /usr/bin/
@@ -67,7 +67,7 @@ cp CopyTask1 /usr/bin/
 cat << EOF > CopyTask2
 #!/bin/sh
 fclone2 copy lss:{1xgAq19msrgyclWey5y6z_bMq7SIatn9m} lss:{1dT0iiwdn4IGHw8pGidzIg_WTK260mwDI} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first --ignore-existing &
-echo $! > /tmp/task2
+echo $! > ./task2.pid
 EOF
 chmod 755 CopyTask2
 cp CopyTask2 /usr/bin/
@@ -101,9 +101,9 @@ do
         if [ @ccc@ -ge 2 ]
         then
             echo "------------Kill Old Task2 ------------"
-            echo ”*********”`cat /tmp/task2`
-            kill `cat /tmp/task2`
-            rm -f /tmp/task2
+            echo ”*********”`cat ./task2.pid`
+            kill `cat ./task2.pid`
+            rm -f ./task2.pid
             
             echo "------------Sleep 5 Wait Task2 Was Killed------------"
             sleep 5
@@ -115,9 +115,9 @@ do
         if [ @ddd@ -ge 2 ]
         then
             echo "------------Kill Old Task1 ------------"
-            echo ”*********”`cat /tmp/task1`
-            kill `cat /tmp/task1`
-            rm -f /tmp/task1
+            echo ”*********”`cat ./task1.pid`
+            kill `cat ./task1.pid`
+            rm -f  ./task1.pid
             echo "------------Sleep 5 Wait Task1 Was Killed------------"
             sleep 5
             echo "------------Start New Task1 And Task2------------"
@@ -132,11 +132,11 @@ do
         echo "------------Stop Dynos------------"
         if [ @ccc@ -ge 2 ]
         then
-            kill `cat /tmp/task1`
+            kill `cat ./task1.pid`
         fi
         if [ @ddd@ -ge 2 ]
         then
-            kill `cat /tmp/task2`
+            kill `cat ./task2.pid`
         fi
         break
     fi

@@ -125,8 +125,14 @@ do
     if [ $intNum -ge $((`cat startDate`)) ]
     then
         echo "------------Stop Dynos------------"
-        kill `cat task1`
-        kill `cat task2`
+        if [ @ccc@ -ge 2 ]
+        then
+            kill `cat task1`
+        fi
+        if [ @ddd@ -ge 2 ]
+        then
+            kill `cat task2`
+        fi
         break
     fi
 done

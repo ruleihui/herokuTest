@@ -119,7 +119,7 @@ do
             sleep 5
             echo "------------Start New Task2------------"
             CopyTask2 &
-            
+            sleep 1
             echo ”*********”\`ps -ef | grep fclone2 | grep -v grep\`
 
         else
@@ -133,9 +133,9 @@ do
             
             echo "------------Sleep 5 Wait Task1 Was Killed------------"
             sleep 5
-            echo "------------Start New Task1 And Task2------------"
+            echo "------------Start New Task1------------"
             CopyTask1 &
-            
+            sleep 1
             echo ”*********”\`ps -ef | grep fclone1 | grep -v grep\`
         else
             echo "------------2017 was over ------------"

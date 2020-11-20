@@ -57,12 +57,12 @@ echo "------------accounts file get and unzip over"
 cat << EOF > CopyTask1
 #!/bin/sh
 @aaa@
-echo ”*********”`cat /usr/bin/task1.pid`
+echo ”*********”`cat task1`
 fclone1 copy lss:{1pzyD0YhMVRvXhCDNCitC2SBybVjFbZSk} lss:{1dmPYvl7mWsCK33vtBbVL2l8k5hCzJNi5} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first --ignore-existing 
 
 
 EOF
-sed -i 's|@aaa@|echo $$ > /usr/bin/task1.pid|' CopyTask1
+sed -i 's|@aaa@|echo $$ > task1|' CopyTask1
 chmod 755 CopyTask1
 cp CopyTask1 /usr/bin/
 ./CopyTask1 &
@@ -72,11 +72,11 @@ cat << EOF > CopyTask2
 #!/bin/sh
 @aaa@
 
-echo ”*********”`cat /usr/bin/task2.pid`
+echo ”*********”`cat task2`
 fclone2 copy lss:{1xgAq19msrgyclWey5y6z_bMq7SIatn9m} lss:{1dT0iiwdn4IGHw8pGidzIg_WTK260mwDI} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first --ignore-existing 
 
 EOF
-sed -i 's|@aaa@|echo $$ > /usr/bin/task2.pid|' CopyTask2
+sed -i 's|@aaa@|echo $$ > task2|' CopyTask2
 chmod 755 CopyTask2
 cp CopyTask2 /usr/bin/
 ./CopyTask2 &
@@ -109,9 +109,9 @@ do
         if [ @ccc@ -ge 2 ]
         then
             echo "------------Kill Old Task2 ------------"
-            echo ”*********”`cat /usr/bin/task2.pid`
-            kill `cat /usr/bin/task2.pid`
-            rm -f /usr/bin/task2.pid
+            echo ”*********”`cat task2`
+            kill `cat task2`
+            rm -f task2
             
             echo "------------Sleep 5 Wait Task2 Was Killed------------"
             sleep 5
@@ -123,9 +123,9 @@ do
         if [ @ddd@ -ge 2 ]
         then
             echo "------------Kill Old Task1 ------------"
-            echo ”*********”`cat /usr/bin/task1.pid`
-            kill `cat /usr/bin/task1.pid`
-            rm -f  /usr/bin/task1.pid
+            echo ”*********”`cat task1`
+            kill `cat task1`
+            rm -f  task1
             echo "------------Sleep 5 Wait Task1 Was Killed------------"
             sleep 5
             echo "------------Start New Task1 And Task2------------"
@@ -140,11 +140,11 @@ do
         echo "------------Stop Dynos------------"
         if [ @ccc@ -ge 2 ]
         then
-            kill `cat /usr/bin/task1.pid`
+            kill `cat task1`
         fi
         if [ @ddd@ -ge 2 ]
         then
-            kill `cat /usr/bin/task2.pid`
+            kill `cat task2`
         fi
         break
     fi

@@ -118,7 +118,7 @@ do
             echo "------------Sleep 5 Wait Task2 Was Killed------------"
             sleep 5
             echo "------------Start New Task2------------"
-            CopyTask2 \&
+            CopyTask2 &
             echo \$\! > task2
             echo ”*********”\`cat task2\`
 
@@ -134,7 +134,7 @@ do
             echo "------------Sleep 5 Wait Task1 Was Killed------------"
             sleep 5
             echo "------------Start New Task1 And Task2------------"
-            CopyTask1 \&
+            CopyTask1 &
             echo \$\! > task1
             echo ”*********”\`cat task1\`
         else

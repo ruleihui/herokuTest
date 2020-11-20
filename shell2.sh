@@ -56,7 +56,7 @@ echo "------------accounts file get and unzip over"
 #2017
 cat << EOF > CopyTask1
 #!/bin/sh
-echo \$\$ > task1.pid
+echo \$\! > task1.pid
 
 echo ”*********”`cat task1.pid`
 fclone1 copy lss:{1pzyD0YhMVRvXhCDNCitC2SBybVjFbZSk} lss:{1dmPYvl7mWsCK33vtBbVL2l8k5hCzJNi5} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first --ignore-existing 
@@ -70,7 +70,7 @@ cp CopyTask1 /usr/bin/
 #2019
 cat << EOF > CopyTask2
 #!/bin/sh
-echo \$\$ > task2.pid
+echo \$\! > task2.pid
 
 echo ”*********”`cat task2.pid`
 fclone2 copy lss:{1xgAq19msrgyclWey5y6z_bMq7SIatn9m} lss:{1dT0iiwdn4IGHw8pGidzIg_WTK260mwDI} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first --ignore-existing 
@@ -97,7 +97,7 @@ cat << EOF > waitkill
 #!/bin/sh
 while :
 do
-    echo $$ > waitKillPid
+    echo \$\$ > waitKillPid
     currentTime $intNum `cat startDate`
     sleep 2              # per sleep 60 second to do
     if [ $intNum -ge @aaa@ ]

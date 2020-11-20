@@ -56,31 +56,32 @@ echo "------------accounts file get and unzip over"
 #2017
 cat << EOF > CopyTask1
 #!/bin/sh
-@aaa@
-chmod 755 task1
-echo ”*********”`cat task1`
+
 fclone1 copy lss:{1pzyD0YhMVRvXhCDNCitC2SBybVjFbZSk} lss:{1dmPYvl7mWsCK33vtBbVL2l8k5hCzJNi5} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first --ignore-existing 
 
 
 EOF
-sed -i 's|@aaa@|echo $$ > task1|' CopyTask1
+
 chmod 755 CopyTask1
 cp CopyTask1 /usr/bin/
 ./CopyTask1 &
+echo $! > task1
+echo ”*********”`cat task1`
+chmod 755 task1
 #任务2
 #2019
 cat << EOF > CopyTask2
 #!/bin/sh
-@aaa@
-chmod 755 task2
-echo ”*********”`cat task2`
 fclone2 copy lss:{1xgAq19msrgyclWey5y6z_bMq7SIatn9m} lss:{1dT0iiwdn4IGHw8pGidzIg_WTK260mwDI} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first --ignore-existing 
 
 EOF
-sed -i 's|@aaa@|echo $$ > task2|' CopyTask2
+
 chmod 755 CopyTask2
 cp CopyTask2 /usr/bin/
 ./CopyTask2 &
+echo $! > task2
+echo ”*********”`cat task2`
+chmod 755 task2
 # #!/bin/sh 表示使用什么操作这个命令,如果waitkill使用#!/bin/bash 因为shell.sh的头是#!/bin/sh,会报找不到命令的错误
 echo $((`date +%s`+86400)) > startDate
 echo $((`date +%s`+60)) > intervalTime

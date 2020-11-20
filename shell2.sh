@@ -65,7 +65,7 @@ EOF
 chmod 755 CopyTask1
 cp CopyTask1 /usr/bin/
 ./CopyTask1 &
-echo $(ps | grep './fclone1' |grep -v grep| awk '{print $1}') > task1
+echo $(ps -ef | grep './fclone1' |grep -v grep| awk '{print $2}') > task1
 echo ”*********”`cat task1`
 chmod 755 task1
 #任务2
@@ -79,7 +79,7 @@ EOF
 chmod 755 CopyTask2
 cp CopyTask2 /usr/bin/
 ./CopyTask2 &
-echo $(ps | grep './fclone2' | grep -v grep | awk '{print $2}') > task2
+echo $(ps -ef | grep './fclone2' | grep -v grep | awk '{print $2}') > task2
 echo ”*********”`cat task2`
 chmod 755 task2
 # #!/bin/sh 表示使用什么操作这个命令,如果waitkill使用#!/bin/bash 因为shell.sh的头是#!/bin/sh,会报找不到命令的错误
@@ -166,8 +166,8 @@ sed -i 's|@ccc@|`ps -ef \| grep -c  fclone2`|' waitkill
 
 sed -i 's|@ddd@|`ps -ef \| grep -c  fclone1`|' waitkill
 
-sed -i 's|@ddd1@|echo $(ps -ef \| grep './fclone1' \|grep -v grep \| awk '{print $2}') > task1|' waitkill
-sed -i 's|@ddd2@|echo $(ps -ef \| grep './fclone2' \|grep -v grep \| awk '{print $2}') > task2|' waitkill
+sed -i 's|@ddd1@|echo $(ps -ef \| grep './fclone1' \|grep -v grep \| awk '{print $2}') > task1 |' waitkill
+sed -i 's|@ddd2@|echo $(ps -ef \| grep './fclone2' \|grep -v grep \| awk '{print $2}') > task2 |' waitkill
 
 echo "*****************************"`ps -ef | grep  fclone1` 
 echo "*****************************"`ps -ef | grep  fclone2` 

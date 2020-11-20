@@ -100,7 +100,7 @@ cat << EOF > waitkill
 #!/bin/sh
 while :
 do
-    echo \$\$ > waitKillPid
+    echo $$ > waitKillPid
     currentTime $intNum `cat startDate`
     sleep 2              # per sleep 60 second to do
     if [ $intNum -ge @aaa@ ]
@@ -119,7 +119,7 @@ do
             sleep 5
             echo "------------Start New Task2------------"
             CopyTask2 &
-            echo \$\! > task2
+            echo $! > task2
             echo ”*********”\`cat task2\`
 
         else
@@ -135,7 +135,7 @@ do
             sleep 5
             echo "------------Start New Task1 And Task2------------"
             CopyTask1 &
-            echo \$\! > task1
+            echo $! > task1
             echo ”*********”\`cat task1\`
         else
             echo "------------2017 was over ------------"

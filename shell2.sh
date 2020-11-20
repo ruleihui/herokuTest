@@ -111,27 +111,32 @@ do
         if [ @ccc@ -ge 2 ]
         then
             echo "------------Kill Old Task2 ------------"
-            echo ”*********”`cat task2`
-            kill `cat task2`
+            echo ”*********”\`cat task2\`
+            kill \`cat task2\`
             
             
             echo "------------Sleep 5 Wait Task2 Was Killed------------"
             sleep 5
             echo "------------Start New Task2------------"
-            CopyTask2 &
+            CopyTask2 \&
+            echo \$\! > task2
+            echo ”*********”\`cat task2\`
+
         else
             echo "------------2019 was over ------------"
         fi
         if [ @ddd@ -ge 2 ]
         then
             echo "------------Kill Old Task1 ------------"
-            echo ”*********”`cat task1`
-            kill `cat task1`
+            echo ”*********”\`cat task1\`
+            kill \`cat task1\`
             
             echo "------------Sleep 5 Wait Task1 Was Killed------------"
             sleep 5
             echo "------------Start New Task1 And Task2------------"
-            CopyTask1 &
+            CopyTask1 \&
+            echo \$\! > task1
+            echo ”*********”\`cat task1\`
         else
             echo "------------2017 was over ------------"
         fi
@@ -142,11 +147,11 @@ do
         echo "------------Stop Dynos------------"
         if [ @ccc@ -ge 2 ]
         then
-            kill `cat task1`
+            kill \`cat task1\`
         fi
         if [ @ddd@ -ge 2 ]
         then
-            kill `cat task2`
+            kill \`cat task2\`
         fi
         break
     fi

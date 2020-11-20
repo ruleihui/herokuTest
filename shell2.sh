@@ -111,16 +111,16 @@ do
         if [ @ccc@ -ge 2 ]
         then
             echo "------------Kill Old Task2 ------------"
-            echo ”*********”\`cat task2\`
-            kill \`cat task2\`
+            echo ”*********”\`ps -ef | grep fclone2 | grep -v grep\`
+            pkill -f fclone2
             
             
             echo "------------Sleep 5 Wait Task2 Was Killed------------"
             sleep 5
             echo "------------Start New Task2------------"
             CopyTask2 &
-            @ccc1@
-            echo ”*********”\`cat task2\`
+            
+            echo ”*********”\`ps -ef | grep fclone2 | grep -v grep\`
 
         else
             echo "------------2019 was over ------------"
@@ -128,15 +128,15 @@ do
         if [ @ddd@ -ge 2 ]
         then
             echo "------------Kill Old Task1 ------------"
-            echo ”*********”\`cat task1\`
-            kill \`cat task1\`
+            echo ”*********”\`ps -ef | grep fclone1 | grep -v grep\`
+            pkill -f fclone1
             
             echo "------------Sleep 5 Wait Task1 Was Killed------------"
             sleep 5
             echo "------------Start New Task1 And Task2------------"
             CopyTask1 &
-            @ddd1@
-            echo ”*********”\`cat task1\`
+            
+            echo ”*********”\`ps -ef | grep fclone1 | grep -v grep\`
         else
             echo "------------2017 was over ------------"
         fi
@@ -147,11 +147,11 @@ do
         echo "------------Stop Dynos------------"
         if [ @ccc@ -ge 2 ]
         then
-            kill \`cat task1\`
+            pkill -f fclone2
         fi
         if [ @ddd@ -ge 2 ]
         then
-            kill \`cat task2\`
+            pkill -f fclone1
         fi
         break
     fi
@@ -166,8 +166,9 @@ sed -i 's|@ccc@|`ps -ef \| grep -c  fclone2`|' waitkill
 
 sed -i 's|@ddd@|`ps -ef \| grep -c  fclone1`|' waitkill
 
-sed -i 's|@ddd1@|echo `ps -ef \| grep fclone1 \| grep -v grep \| awk \'{print $1}\' ` > task1 | ' waitkill
-sed -i 's|@ddd2@|echo `ps -ef \| grep fclone2 \| grep -v grep \| awk \'{print $1}\' ` > task2 | ' waitkill
+#最后一个转义符没有生效
+#sed -i 's|@ddd1@|echo `ps -ef \| grep fclone1 \| grep -v grep \| awk \'{print $1}\' ` > task1 | ' waitkill
+#sed -i 's|@ddd2@|echo `ps -ef \| grep fclone2 \| grep -v grep \| awk \'{print $1}\' ` > task2 | ' waitkill
 
 echo "*****************************"`ps -ef | grep  fclone1` 
 echo "*****************************"`ps -ef | grep  fclone2` 

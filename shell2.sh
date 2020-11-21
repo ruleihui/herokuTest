@@ -57,7 +57,7 @@ echo "------------accounts file get and unzip over"
 cat << EOF > CopyTask1
 #!/bin/sh
 
-fclone1 copy lss:{1pzyD0YhMVRvXhCDNCitC2SBybVjFbZSk} lss:{1dmPYvl7mWsCK33vtBbVL2l8k5hCzJNi5} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first --ignore-existing 
+fclone1 copy lss:{1pzyD0YhMVRvXhCDNCitC2SBybVjFbZSk} lss:{1dmPYvl7mWsCK33vtBbVL2l8k5hCzJNi5} --drive-server-side-across-configs --stats=2s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first --ignore-existing 
 
 
 EOF
@@ -72,7 +72,7 @@ chmod 755 task1
 #2019
 cat << EOF > CopyTask2
 #!/bin/sh
-fclone2 copy lss:{1xgAq19msrgyclWey5y6z_bMq7SIatn9m} lss:{1dT0iiwdn4IGHw8pGidzIg_WTK260mwDI} --drive-server-side-across-configs --stats=1s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first --ignore-existing 
+fclone2 copy lss:{1xgAq19msrgyclWey5y6z_bMq7SIatn9m} lss:{1dT0iiwdn4IGHw8pGidzIg_WTK260mwDI} --drive-server-side-across-configs --stats=2s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first --ignore-existing 
 
 EOF
 

@@ -109,6 +109,7 @@ do
     then
         echo "------------Keep active by curl http request------------"
         curl https://cron-to-copy.herokuapp.com/
+        sleep 3
         @bbb@
         if [ @ccc@ -ge 2 ]
         then

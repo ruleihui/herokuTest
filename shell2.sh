@@ -65,6 +65,7 @@ EOF
 chmod 755 CopyTask1
 cp CopyTask1 /usr/bin/
 ./CopyTask1 &
+sleep 1
 echo `ps -ef | grep fclone1 |grep -v grep| awk '{print $1}'` > task1
 echo ”*********”`cat task1`
 chmod 755 task1
@@ -79,6 +80,7 @@ EOF
 chmod 755 CopyTask2
 cp CopyTask2 /usr/bin/
 ./CopyTask2 &
+sleep 1
 echo `ps -ef | grep fclone2 | grep -v grep | awk '{print $1}'` > task2
 echo ”*********”`cat task2`
 chmod 755 task2

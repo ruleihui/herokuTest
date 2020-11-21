@@ -161,6 +161,7 @@ do
     if [ @xxx@ -eq 1 ]
     then
         echo '*******************current tasks was done'
+        echo \`ps -ef \`
         break
     fi
 done

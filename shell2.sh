@@ -161,7 +161,7 @@ do
     if [ @xxx@ -eq 1 ]
     then
         echo '*******************current tasks was done'
-        echo '*******************'\`ps -ef | grep  fclone \`
+        echo '*******************'\`ps -ef | grep  fclone | wc -l \`
         pkill -f fclone1
         pkill -f fclone2
         break

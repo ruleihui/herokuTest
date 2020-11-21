@@ -160,15 +160,15 @@ do
     fi
     if [$intNum -ge @aaa1@ ]
     then
-    if [ @xxx@ -eq 1 ]
-    then
+        if [ @xxx@ -eq 1 ]
+        then
         @bbb1@
         echo '*******************current tasks was done'
         echo '*******************'\`ps -ef | grep -c 'fclone' \`
         pkill -f fclone1
         pkill -f fclone2
         break
-    fi
+        fi
     fi
 done
 EOF

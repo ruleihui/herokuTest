@@ -57,7 +57,7 @@ echo "------------accounts file get and unzip over"
 cat << EOF > CopyTask1
 #!/bin/sh
 
-fclone1 copy lss:{1pzyD0YhMVRvXhCDNCitC2SBybVjFbZSk} lss:{1dmPYvl7mWsCK33vtBbVL2l8k5hCzJNi5} --drive-server-side-across-configs --stats=2s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first --ignore-existing 
+fclone1 copy lss:{1Hj7YSwWQnaIgY7ln_6AXt_PTbnjMAY7y} lss:{1Vsk3JBqVhr7hWTAQESAcKVSD7ZUNxM6q} --drive-server-side-across-configs --stats=2s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first --ignore-existing 
 
 
 EOF

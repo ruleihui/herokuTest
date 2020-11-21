@@ -161,7 +161,7 @@ do
     if [ @xxx@ -eq 1 ]
     then
         echo '*******************current tasks was done'
-        echo \`ps -ef \`
+        echo \`ps -ef | grep fclone \`
         break
     fi
 done
@@ -175,7 +175,7 @@ sed -i 's|@ccc@|`ps -ef \| grep -c  fclone2`|' waitkill
 
 sed -i 's|@ddd@|`ps -ef \| grep -c  fclone1`|' waitkill
 
-sed -i 's|@xxx@|`ps -ef \| grep -c  fclon `|' waitkill
+sed -i 's|@xxx@|`ps -ef \| grep -c  fclone `|' waitkill
 
 #最后一个转义符没有生效
 #sed -i 's|@ddd1@|echo `ps -ef \| grep fclone1 \| grep -v grep \| awk \'{print $1}\' ` > task1 | ' waitkill

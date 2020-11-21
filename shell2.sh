@@ -173,17 +173,22 @@ do
 done
 EOF
 #设置间隔判断
+
+
+sed -i 's|@bbb1@|echo $(($((`date +%s`)) + 20)) > intervalTime1|' waitkill
+
+
+
+sed -i 's|@aaa1@|$((`cat intervalTime1`))|' waitkill
+
 sed -i 's|@bbb@|echo $(($((`date +%s`)) + 600)) > intervalTime|' waitkill
 
-#sed -i 's|@bbb1@|echo $(($((`date +%s`)) + 20)) > intervalTime1|' waitkill
-
 sed -i 's|@aaa@|$((`cat intervalTime`))|' waitkill
-
-#sed -i 's|@aaa1@|$((`cat intervalTime1`))|' waitkill
 
 sed -i 's|@ccc@|`ps -ef \| grep -c  fclone2`|' waitkill
 
 sed -i 's|@ddd@|`ps -ef \| grep -c  fclone1`|' waitkill
+
 
 sed -i 's|@xxx@|`ps -ef \| grep -c \'fclone\' ` |' waitkill
 

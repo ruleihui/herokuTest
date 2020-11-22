@@ -147,9 +147,8 @@ do
         echo '*******************Wait 2s first check '
         if [ \`ps -ef | grep -c 'fclone' \` -eq 1 ]
         then
-        sleep 2
-        echo '*******************Wait 2s second check '
-        @bbb1@
+            sleep 2
+            echo '*******************Wait 2s second check '
             if [ \`ps -ef | grep -c 'fclone' \` -eq 1 ]
             then
                 echo '*******************current tasks was done'
@@ -157,7 +156,11 @@ do
                 pkill -f fclone1
                 pkill -f fclone2
                 break
+            else
+                @bbb1@
             fi
+        else
+            @bbb1@
         fi
     fi
 done

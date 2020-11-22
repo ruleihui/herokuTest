@@ -70,6 +70,8 @@ echo $((`date +%s`+600)) > intervalTime
 
 echo $((`date +%s`+20)) > intervalTime1
 
+echo 0 > sum
+
 #打印仍将保持时间
 cat << EOF > currentTime
 #!/bin/sh
@@ -142,13 +144,22 @@ do
     fi
     if [ $intNum -ge @aaa1@ ]
     then
-        #判断两次,在heroku中ps-ef似乎不稳定
-        sleep 2
-        echo '*******************Wait 2s first check '
-        if [ \`ps -ef | grep -c 'fclone' \` -eq 1 ]
+        #判断多次,在heroku中ps-ef似乎不稳定
+        for loop in 1 2 3 4 5
+        do
+            sleep 2
+            echo '*******************Wait 2s \$loop check '
+            if [ \`ps -ef | grep -c 'fclone' \` -eq 1 ]
+            then
+                @bbb2@
+                echo '*******************'\`cat sum\`
+            fi
+        done
+        echo '*******************verify '
+        if [ \` cat sum \` -eq 5 ]
         then
             sleep 2
-            echo '*******************Wait 2s second check '
+            echo '*******************Wait 2s final check '
             if [ \`ps -ef | grep -c 'fclone' \` -eq 1 ]
             then
                 echo '*******************current tasks was done'
@@ -169,6 +180,8 @@ EOF
 sed -i 's|@bbb@|echo $(($((`date +%s`)) + 600)) > intervalTime|' waitkill
 
 sed -i 's|@bbb1@|echo $(($((`date +%s`)) + 20)) > intervalTime1|' waitkill
+
+sed -i 's|@bbb2@|echo $(($((`cat sum`)) + 1)) > sum|' waitkill
 
 sed -i 's|@aaa@|$((`cat intervalTime`))|' waitkill
 

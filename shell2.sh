@@ -153,6 +153,8 @@ do
             then
                 @bbb2@
                 echo '*******************'\`cat sum\`
+            else
+                break 1
             fi
         done
         echo '*******************verify '

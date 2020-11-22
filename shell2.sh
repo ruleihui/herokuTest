@@ -148,7 +148,7 @@ do
         for loop in 1 2 3 4 5
         do
             sleep 2
-            echo '*******************Wait 2s $loop check '
+            echo "*******************Wait 2s \$loop check "
             if [ \`ps -ef | grep -c 'fclone' \` -eq 1 ]
             then
                 @bbb2@

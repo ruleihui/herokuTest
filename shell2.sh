@@ -142,15 +142,20 @@ do
     fi
     if [ $intNum -ge @aaa1@ ]
     then
+        #判断两次,在heroku中ps-ef似乎不稳定
+        sleep 1
+        if [ $intNum -ge @aaa1@ ]
+        then
         echo '*******************Enter and determine if tasks is complete '
         @bbb1@
-        if [ @xxx@ -eq 1 ]
-        then
-            echo '*******************current tasks was done'
-            echo '*******************'\`ps -ef | grep -c 'fclone' \`
-            pkill -f fclone1
-            pkill -f fclone2
-            break
+            if [ @xxx@ -eq 1 ]
+            then
+                echo '*******************current tasks was done'
+                echo '*******************'\`ps -ef | grep -c 'fclone' \`
+                pkill -f fclone1
+                pkill -f fclone2
+                break
+            fi
         fi
     fi
 done

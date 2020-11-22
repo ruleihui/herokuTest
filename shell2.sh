@@ -187,7 +187,12 @@ sed -i 's|@ccc@|`ps -ef \| grep -c  fclone2`|' waitkill
 
 sed -i 's|@ddd@|`ps -ef \| grep -c  fclone1`|' waitkill
 
-sed -i 's|@xxx@|`ps -ef \| grep -c \'fclone\'  `|' waitkill
+sed -i 's|@xxx@|`ps -ef \| grep -c @xxx1@  `|' waitkill
+
+sed -i 's|@xxx1@| \` fclone@xxx2@  |' waitkill
+
+sed -i 's|@xxx2@| \'|' waitkill
+
 
 
 

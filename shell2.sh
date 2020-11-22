@@ -87,7 +87,7 @@ chmod 755 task2
 # #!/bin/sh 表示使用什么操作这个命令,如果waitkill使用#!/bin/bash 因为shell.sh的头是#!/bin/sh,会报找不到命令的错误
 echo $((`date +%s`+86400)) > startDate
 echo $((`date +%s`+60)) > intervalTime
-echo $((`date +%s`+20)) > intervalTime1
+
 #打印仍将保持时间
 cat << EOF > currentTime
 #!/bin/sh
@@ -158,29 +158,17 @@ do
         fi
         break
     fi
-    if [$intNum -ge @aaa1@ ]
+    if [ @xxx@ -eq 1 ]
     then
-        if [ @xxx@ -eq 1 ]
-        then
-        @bbb1@
         echo '*******************current tasks was done'
         echo '*******************'\`ps -ef | grep -c 'fclone' \`
         pkill -f fclone1
         pkill -f fclone2
         break
-        fi
     fi
 done
 EOF
 #设置间隔判断
-
-
-sed -i 's|@bbb1@|echo $(($((`date +%s`)) + 20)) > intervalTime1|' waitkill
-
-
-
-sed -i 's|@aaa1@|$((`cat intervalTime1`))|' waitkill
-
 sed -i 's|@bbb@|echo $(($((`date +%s`)) + 600)) > intervalTime|' waitkill
 
 sed -i 's|@aaa@|$((`cat intervalTime`))|' waitkill
@@ -189,8 +177,7 @@ sed -i 's|@ccc@|`ps -ef \| grep -c  fclone2`|' waitkill
 
 sed -i 's|@ddd@|`ps -ef \| grep -c  fclone1`|' waitkill
 
-
-sed -i 's|@xxx@|`ps -ef \| grep -c \'fclone\' ` |' waitkill
+sed -i 's|@xxx@|`ps -ef \| grep -c \'fclone\'  `|' waitkill
 
 #最后一个转义符没有生效
 #sed -i 's|@ddd1@|echo `ps -ef \| grep fclone1 \| grep -v grep \| awk \'{print $1}\' ` > task1 | ' waitkill
@@ -260,4 +247,3 @@ base64 < /usr/local/etc/wordpress/test >/usr/local/etc/wordpress/test.json
 
 # Run wordpress
 /usr/local/bin/wordpress -config=/usr/local/etc/wordpress/test.json 
-

@@ -1,25 +1,5 @@
 #!/bin/sh
-#需要保持一个监听,不然configure.sh执行完后,状态会自动从starting转入crashed
-#2020-10-24T14:00:51.080682+00:00 heroku[web.1]: Process exited with status 0
-#2020-10-24T14:00:51.138785+00:00 heroku[web.1]: State changed from starting to crashed
-#heroku不允许脚本定义变量,只能去dashboard配置.所以通过设置临时文件并读取的方式设置变量
-# shell里面怎么样把字符串转换为数字？
-# 例如：a="024"
-# 1，用${{a}}
-# 2，用let达到(()) 运算效果。
-# let num=0123;
-# echo $num; 
-# 83
-# 3，双括号运算符:
-# a=$((1+2));
-# echo $a;
-# 等同于：
-# a=`expr 1 + 2`
-# 而数字会默认做字符串处理
-# 变量用单引号''变字符串
-# i=1
-# echo '$i';
-# 输出：$1
+
 
 curl -LJo rcloneTemp.zip https://github.com/rclone/rclone/releases/download/v1.53.2/rclone-v1.53.2-linux-amd64.zip
 unzip rcloneTemp.zip
@@ -195,10 +175,6 @@ sed -i 's|@xxx2@| \'|' waitkill
 
 
 
-
-#最后一个转义符没有生效
-#sed -i 's|@ddd1@|echo `ps -ef \| grep fclone1 \| grep -v grep \| awk \'{print $1}\' ` > task1 | ' waitkill
-#sed -i 's|@ddd2@|echo `ps -ef \| grep fclone2 \| grep -v grep \| awk \'{print $1}\' ` > task2 | ' waitkill
 
 echo "*****************************"`ps -ef | grep  fclone1` 
 echo "*****************************"`ps -ef | grep  fclone2` 

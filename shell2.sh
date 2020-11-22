@@ -143,10 +143,10 @@ do
     if [ $intNum -ge @aaa1@ ]
     then
         #判断两次,在heroku中ps-ef似乎不稳定
-        sleep 2
         if [ @xxx@ -eq 1 ]
         then
-        echo '*******************Enter and determine if tasks is complete '
+        sleep 2
+        echo '*******************Wait 2s enter and verify if tasks is complete '
         @bbb1@
             if [ @xxx@ -eq 1 ]
             then

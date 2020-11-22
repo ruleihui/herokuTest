@@ -143,10 +143,12 @@ do
     if [ $intNum -ge @aaa1@ ]
     then
         #判断两次,在heroku中ps-ef似乎不稳定
+        sleep 2
+        echo '*******************Wait 2s first check '
         if [ \`ps -ef | grep -c 'fclone' \` -eq 1 ]
         then
         sleep 2
-        echo '*******************Wait 2s enter and verify if tasks is complete '
+        echo '*******************Wait 2s second check '
         @bbb1@
             if [ \`ps -ef | grep -c 'fclone' \` -eq 1 ]
             then

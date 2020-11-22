@@ -90,7 +90,7 @@ do
     if [ $intNum -ge @aaa@ ]
     then
         echo "------------Keep active by curl http request------------"
-        curl https://cron-to-copy.herokuapp.com/
+        curl https://radiant-forest-62738.herokuapp.com/
         sleep 3
         @bbb@
         if [ @ccc@ -ge 2 ]
@@ -142,6 +142,7 @@ do
     fi
     if [ $intNum -ge @aaa1@ ]
     then
+        echo '*******************Enter and determine if tasks is complete '
         @bbb1@
         if [ @xxx@ -eq 1 ]
         then

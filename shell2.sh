@@ -167,11 +167,14 @@ sed -i 's|@ccc@|`ps -ef \| grep -c  fclone2`|' waitkill
 
 sed -i 's|@ddd@|`ps -ef \| grep -c  fclone1`|' waitkill
 
-sed -i 's|@xxx@|`ps -ef \| grep -c @xxx1@  `|' waitkill
+# sed命令中，使用单引号来制定操作，如sed 's/regular/replace/'。如果想在单引号中转义单引号采用转义字符是不行的。解决的方法是把sed部分用单引号分割开，在外面转义。
 
-sed -i 's|@xxx1@| \' fclone@xxx2@  |' waitkill
+# 如：A:  nl /etc/passwd | sed '2a I\'am Dophi!'     --------错误
 
-sed -i 's|@xxx2@| \'|' waitkill
+# B: nl /etc/passwd | sed '2a I'\''am Dophi'    ---------正确，都是单引号，单引号之间没有空格
+
+sed -i 's|@xxx@|`ps -ef \| grep -c '\''fclone'\'' `|' waitkill
+
 
 
 

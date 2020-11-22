@@ -157,7 +157,8 @@ do
                 break 1
             fi
         done
-        echo '*******************verify '
+        echo '*******************verify '\`cat sum\`
+        echo 0 > sum
         if [ \` cat sum \` -eq 5 ]
         then
             sleep 2

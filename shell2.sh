@@ -143,12 +143,12 @@ do
     if [ $intNum -ge @aaa1@ ]
     then
         #判断两次,在heroku中ps-ef似乎不稳定
-        if [ @xxx@ -eq 1 ]
+        if [ \`ps -ef | grep -c 'fclone' \` -eq 1 ]
         then
         sleep 2
         echo '*******************Wait 2s enter and verify if tasks is complete '
         @bbb1@
-            if [ @xxx@ -eq 1 ]
+            if [ \`ps -ef | grep -c 'fclone' \` -eq 1 ]
             then
                 echo '*******************current tasks was done'
                 echo '*******************'\`ps -ef | grep -c 'fclone' \`
@@ -179,7 +179,7 @@ sed -i 's|@ddd@|`ps -ef \| grep -c  fclone1`|' waitkill
 
 # B: nl /etc/passwd | sed '2a I'\''am Dophi'    ---------正确，都是单引号，单引号之间没有空格
 
-sed -i 's|@xxx@|`ps -ef \| grep -c '\''fclone'\'' `|' waitkill
+#sed -i 's|@xxx@|`ps -ef \| grep -c '\''fclone'\'' `|' waitkill
 
 
 

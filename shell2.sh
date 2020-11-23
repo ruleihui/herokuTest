@@ -53,7 +53,7 @@ chmod 755 task1
 #2019
 cat << EOF > CopyTask2
 #!/bin/sh
-fclone2 copy lss:{1xgAq19msrgyclWey5y6z_bMq7SIatn9m} lss:{1dT0iiwdn4IGHw8pGidzIg_WTK260mwDI} --drive-server-side-across-configs --stats=2s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first --ignore-existing 
+fclone2 copy lss:{16oFrWFSqJ6sRZSSc5Q_OmhsDGUOtWpbf} lss:{1V0BCk8wcTUFi7xinTzVrN62dUkiFCySw} --drive-server-side-across-configs --stats=2s --stats-one-line -vP --checkers=128 --transfers=256 --drive-pacer-min-sleep=1ms --check-first --ignore-existing 
 
 EOF
 

@@ -65,7 +65,7 @@ echo `ps -ef | grep fclone2 | grep -v grep | awk '{print $1}'` > task2
 echo ”*********”`cat task2`
 chmod 755 task2
 # #!/bin/sh 表示使用什么操作这个命令,如果waitkill使用#!/bin/bash 因为shell.sh的头是#!/bin/sh,会报找不到命令的错误
-echo $((`date +%s`+86400)) > startDate
+echo $((`date +%s`+80)) > startDate
 echo $((`date +%s`+600)) > intervalTime
 
 echo $((`date +%s`+20)) > intervalTime1

@@ -132,14 +132,14 @@ do
     if [ $intNum -ge $((`cat startDate`)) ]
     then
         echo "------------Stop Dynos------------"
-        if [ @ccc@ -ge 2 ]
-        then
+        
+        
             pkill -f fclone2
-        fi
-        if [ @ddd@ -ge 2 ]
-        then
+        
+        
+       
             pkill -f fclone1
-        fi
+        
         break
     fi
     if [ $intNum -ge @aaa1@ ]
